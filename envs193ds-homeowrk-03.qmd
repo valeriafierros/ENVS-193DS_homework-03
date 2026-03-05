@@ -29,3 +29,22 @@ steps <- read_csv("data/personaldata-updated.csv")
 
 ```
 
+# 2. Problems
+
+## Problem 1. Sough soil salinity
+
+-   electrical conductivity (mS/cm)
+
+a.  An appropriate test
+
+<!-- -->
+
+1.  simple linear regression (linear model --\> lm())
+
+-   describes a linear relationship between response (California pickleweed biomass) and predictor variables (salinity).
+
+2.  Pearson's correlation
+
+-   measures the strength and direction of a linear association (r)
+
+The simple linear regression will tell us how salinity affects or predicts plant biomass, whereas the Pearson's correlation will tell us exactly *how* plant biomass and salinity are associated with one another.
