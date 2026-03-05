@@ -1,0 +1,31 @@
+---
+title: "envs193ds-homework-03"
+author: "Valeria Fierros"
+date: "2026-03-05"
+format: 
+  html:
+    toc: true
+execute: 
+  message: false
+  warning: false
+---
+
+[link to homework 3 GitHub repository](https://github.com/valeriafierros/ENVS-193DS_homework-03)
+
+# 1. Set up
+
+```{r}
+#| label: set up
+
+#reading in packages here
+library(tidyverse)
+library(here)
+library(janitor)
+library(readxl)
+
+#reading in data here and making new object
+salinity <- read_csv("data/salinity-pickleweed.csv")
+steps <- read_csv("data/personaldata-updated.csv")
+
+```
+
