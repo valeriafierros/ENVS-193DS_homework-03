@@ -29,13 +29,14 @@ steps <- read_csv("data/personaldata-updated.csv")
 
 ```
 
+
 # 2. Problems
 
 ## Problem 1. Sough soil salinity
 
 -   electrical conductivity (mS/cm)
 
-a.  An appropriate test
+### a.  An appropriate test
 
 <!-- -->
 
@@ -48,3 +49,24 @@ a.  An appropriate test
 -   measures the strength and direction of a linear association (r)
 
 The simple linear regression will tell us how salinity affects or predicts plant biomass, whereas the Pearson's correlation will tell us exactly *how* plant biomass and salinity are associated with one another.
+
+### b. Creating a visualization
+
+```{r}
+#| label: salinity and biomass plot
+
+#base layer: ggplot
+ggplot(data = salinity,
+       aes (x = salinity_mS_cm,
+            y = pickleweed)) +
+  geom_point(color = "forestgreen") +
+  labs(title = "As soil salinity (mS/cm) increases, California pickleweed biomass also \n increases.",
+       x = "Soil Salinity (mS/cm)",
+       y = "California Pickleweed Biomass (g)")+
+  theme_light()
+
+
+```
+
+
+
