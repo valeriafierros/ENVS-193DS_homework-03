@@ -29,7 +29,6 @@ library(readxl)
 salinity <- read_csv("../data/salinity-pickleweed.csv")
 steps <- read_csv("../data/personaldata-updated.csv")
 
-str(steps)
 ```
 
 
@@ -79,7 +78,7 @@ ggplot(data = salinity,
 
 ### c. Checking assumptions + running test (pearson correlation)
 
-#### check your assumptions
+##### check your assumptions
 ```{r}
 #| label: checking visual assumptions with scatterplot (linearity)
 
@@ -118,7 +117,7 @@ plot(salinity_model)
 
 I checked the assumptions of linearity and normality of residuals (and assumed that the data is independent). The linearity assumption was evaluated using a scatterplot, and the normality of the data was evaluated using a QQplot. Based on these plots, we can conclude that the data is approximately linear (not many points in the scatterplot, but they are monotonic) and normal (no significant outliers or deviations in the qqplot). Therefore, we can say that the assumptions are reasonably met. 
 
-#### run your test
+##### run your test
 ```{r}
 
 #running pearson's correlation --> describes the strength of the relationship between salinity and biomass with directionality
