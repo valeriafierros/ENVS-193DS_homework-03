@@ -109,6 +109,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#d.-artist-statement" id="toc-d.-artist-statement" class="nav-link" data-scroll-target="#d.-artist-statement">d.&nbsp;artist statement</a></li>
   <li><a href="#e.-slides-for-workshop" id="toc-e.-slides-for-workshop" class="nav-link" data-scroll-target="#e.-slides-for-workshop">e. slides for workshop</a></li>
   </ul></li>
+  <li><a href="#problem-4.-statistical-critique" id="toc-problem-4.-statistical-critique" class="nav-link" data-scroll-target="#problem-4.-statistical-critique">Problem 4. statistical critique</a>
+  <ul class="collapse">
+  <li><a href="#a.-revisit-and-summarize" id="toc-a.-revisit-and-summarize" class="nav-link" data-scroll-target="#a.-revisit-and-summarize">a. revisit and summarize</a></li>
+  <li><a href="#b.-visual-clarity---how-clearly-does-the-table-represent-the-data-underlying-tests" id="toc-b.-visual-clarity---how-clearly-does-the-table-represent-the-data-underlying-tests" class="nav-link" data-scroll-target="#b.-visual-clarity---how-clearly-does-the-table-represent-the-data-underlying-tests">b. visual clarity - How clearly does the table represent the data underlying tests?</a></li>
+  <li><a href="#c.-aesthetic-clarity---how-well-did-the-authors-handle-visual-clutter-is-there-any-boldingitalic-text-to-draw-your-eye-to-specific-numbers" id="toc-c.-aesthetic-clarity---how-well-did-the-authors-handle-visual-clutter-is-there-any-boldingitalic-text-to-draw-your-eye-to-specific-numbers" class="nav-link" data-scroll-target="#c.-aesthetic-clarity---how-well-did-the-authors-handle-visual-clutter-is-there-any-boldingitalic-text-to-draw-your-eye-to-specific-numbers">c.&nbsp;aesthetic clarity - How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?</a></li>
+  <li><a href="#d.-recommendations" id="toc-d.-recommendations" class="nav-link" data-scroll-target="#d.-recommendations">d.&nbsp;recommendations</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -159,28 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#reading in data here and making new object</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>salinity <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/salinity-pickleweed.csv"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/personaldata-updated.csv"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(steps)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>spc_tbl_ [39 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
- $ date                : chr [1:39] "1/26" "1/27" "1/28" "1/29" ...
- $ day of week         : chr [1:39] "M" "T" "W" "Th" ...
- $ steps taken         : num [1:39] 10698 7856 5730 7691 5683 ...
- $ internship? (yes/no): chr [1:39] "no" "no" "no" "yes" ...
- $ rain vs no rain     : chr [1:39] "no" "no" "no" "no" ...
- $ other plans (yes/no): chr [1:39] "yes" "yes" "no" "no" ...
- - attr(*, "spec")=
-  .. cols(
-  ..   date = col_character(),
-  ..   `day of week` = col_character(),
-  ..   `steps taken` = col_double(),
-  ..   `internship? (yes/no)` = col_character(),
-  ..   `rain vs no rain` = col_character(),
-  ..   `other plans (yes/no)` = col_character()
-  .. )
- - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
-</div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/personaldata-updated.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="problems" class="level1">
@@ -210,6 +196,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b.-creating-a-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="b.-creating-a-visualization">b. Creating a visualization</h3>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#base layer: ggplot</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> salinity,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span> (<span class="at">x =</span> salinity_mS_cm,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> pickleweed)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#adding points and making them forest green</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"forestgreen"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#adding a trendline</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#adding labels and title</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"As soil salinity (mS/cm) increases, California pickleweed biomass also </span><span class="sc">\n</span><span class="st"> increases."</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Soil Salinity (mS/cm)"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"California Pickleweed Biomass (g)"</span>)<span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#changing default theme</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="envs193ds-homeowrk-03_files/figure-html/salinity%20and%20biomass%20plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="c.-checking-assumptions-running-test-pearson-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="c.-checking-assumptions-running-test-pearson-correlation">c.&nbsp;Checking assumptions + running test (pearson correlation)</h3>
+<section id="check-your-assumptions" class="level5">
+<h5 class="anchored" data-anchor-id="check-your-assumptions">check your assumptions</h5>
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#base layer: ggplot</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> salinity,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span> (<span class="at">x =</span> salinity_mS_cm,</span>
@@ -228,48 +243,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="envs193ds-homeowrk-03_files/figure-html/salinity%20and%20biomass%20plot-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="c.-checking-assumptions-running-test-pearson-correlation" class="level3">
-<h3 class="anchored" data-anchor-id="c.-checking-assumptions-running-test-pearson-correlation">c.&nbsp;Checking assumptions + running test (pearson correlation)</h3>
-<section id="check-your-assumptions" class="level4">
-<h4 class="anchored" data-anchor-id="check-your-assumptions">check your assumptions</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#base layer: ggplot</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> salinity,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span> (<span class="at">x =</span> salinity_mS_cm,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> pickleweed)) <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#adding points and making them forest green</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"forestgreen"</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#adding a trendline</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#adding labels and title</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"As soil salinity (mS/cm) increases, California pickleweed biomass also </span><span class="sc">\n</span><span class="st"> increases."</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Soil Salinity (mS/cm)"</span>,</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"California Pickleweed Biomass (g)"</span>)<span class="sc">+</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#changing default theme</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
 <p><img src="envs193ds-homeowrk-03_files/figure-html/checking%20visual%20assumptions%20with%20scatterplot%20(linearity)-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#making a model for qqplot </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>salinity_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pickleweed <span class="sc">~</span> salinity_mS_cm,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> salinity)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting salinity model to check QQplot</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(salinity_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#making a model for qqplot </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>salinity_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pickleweed <span class="sc">~</span> salinity_mS_cm,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> salinity)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting salinity model to check QQplot</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(salinity_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -280,12 +266,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>I checked the assumptions of linearity and normality of residuals (and assumed that the data is independent). The linearity assumption was evaluated using a scatterplot, and the normality of the data was evaluated using a QQplot. Based on these plots, we can conclude that the data is approximately linear (not many points in the scatterplot, but they are monotonic) and normal (no significant outliers or deviations in the qqplot). Therefore, we can say that the assumptions are reasonably met.</p>
 </section>
-<section id="run-your-test" class="level4">
-<h4 class="anchored" data-anchor-id="run-your-test">run your test</h4>
+<section id="run-your-test" class="level5">
+<h5 class="anchored" data-anchor-id="run-your-test">run your test</h5>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#running pearson's correlation --&gt; describes the strength of the relationship between salinity and biomass with directionality</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(salinity<span class="sc">$</span>pickleweed, salinity<span class="sc">$</span>salinity_mS_cm,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#running pearson's correlation --&gt; describes the strength of the relationship between salinity and biomass with directionality</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(salinity<span class="sc">$</span>pickleweed, salinity<span class="sc">$</span>salinity_mS_cm,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -313,12 +299,12 @@ sample estimates:
 <section id="f.-double-checking-my-work" class="level3">
 <h3 class="anchored" data-anchor-id="f.-double-checking-my-work">f.&nbsp;double checking my work</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#running salinity model (already created in part 1c when checking assumptions)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>salinity_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pickleweed <span class="sc">~</span> salinity_mS_cm,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> salinity)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(salinity_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#running salinity model (already created in part 1c when checking assumptions)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>salinity_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pickleweed <span class="sc">~</span> salinity_mS_cm,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> salinity)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(salinity_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -348,31 +334,31 @@ F-statistic: 8.398 on 1 and 21 DF,  p-value: 0.008605</code></pre>
 <section id="a.-updating-my-visualizations" class="level3">
 <h3 class="anchored" data-anchor-id="a.-updating-my-visualizations">a. updating my visualizations</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> steps <span class="sc">|&gt;</span> <span class="co">#calling in dataframe</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">day of week</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">factor</span>(<span class="st">`</span><span class="at">day of week</span><span class="st">`</span>,<span class="co">#modifying the day of week column and converting day of week into a factor (categorical variable)</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"T"</span>, <span class="st">"W"</span>, <span class="st">"Th"</span>, <span class="st">"F"</span>, <span class="st">"Sa"</span>, <span class="st">"Su"</span>), <span class="co">#specify levels</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="co">#keep in order</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(steps, <span class="co">#calling in ggplot visualization and specifying dataset</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">day of week</span><span class="st">`</span>, <span class="co">#make x axis</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="st">`</span><span class="at">steps taken</span><span class="st">`</span>, <span class="co">#make y axis</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">`</span><span class="at">day of week</span><span class="st">`</span>))<span class="sc">+</span> <span class="co">#fill in bar colors by day of the week</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="co">#using the mean to summarize the y values</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"bar"</span>)<span class="sc">+</span> <span class="co">#making a bar chart</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily Step Count By Day of Week"</span>, <span class="co">#titling the graph</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Day of Week"</span>, <span class="co">#labelling x axis</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Steps Taken"</span>)<span class="sc">+</span> <span class="co">#labelling y axis</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>( <span class="co">#manually setting colors for each day of the week</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"M"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="co">#monday = red</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"T"</span> <span class="ot">=</span> <span class="st">"orange"</span>, <span class="co"># tuesday = orange</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"W"</span> <span class="ot">=</span> <span class="st">"yellow"</span>, <span class="co">#wednesday = yellow</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Th"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="co">#thursday = green</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="co">#friday = blue</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sa"</span> <span class="ot">=</span> <span class="st">"violet"</span>, <span class="co"># saturday = purple</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Su"</span> <span class="ot">=</span> <span class="st">"hotpink"</span> <span class="co">#sunday = pink</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">drop =</span> <span class="cn">FALSE</span>)<span class="sc">+</span> <span class="co">#keep all the factors (days) in even if they have no data yet</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="co">#changin theme from the default</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co">#removing legend</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> steps <span class="sc">|&gt;</span> <span class="co">#calling in dataframe</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">day of week</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">factor</span>(<span class="st">`</span><span class="at">day of week</span><span class="st">`</span>,<span class="co">#modifying the day of week column and converting day of week into a factor (categorical variable)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"T"</span>, <span class="st">"W"</span>, <span class="st">"Th"</span>, <span class="st">"F"</span>, <span class="st">"Sa"</span>, <span class="st">"Su"</span>), <span class="co">#specify levels</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="co">#keep in order</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(steps, <span class="co">#calling in ggplot visualization and specifying dataset</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">day of week</span><span class="st">`</span>, <span class="co">#make x axis</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="st">`</span><span class="at">steps taken</span><span class="st">`</span>, <span class="co">#make y axis</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">`</span><span class="at">day of week</span><span class="st">`</span>))<span class="sc">+</span> <span class="co">#fill in bar colors by day of the week</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="co">#using the mean to summarize the y values</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"bar"</span>)<span class="sc">+</span> <span class="co">#making a bar chart</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily Step Count By Day of Week"</span>, <span class="co">#titling the graph</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Day of Week"</span>, <span class="co">#labelling x axis</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Steps Taken"</span>)<span class="sc">+</span> <span class="co">#labelling y axis</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>( <span class="co">#manually setting colors for each day of the week</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"M"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="co">#monday = red</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"T"</span> <span class="ot">=</span> <span class="st">"orange"</span>, <span class="co"># tuesday = orange</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"W"</span> <span class="ot">=</span> <span class="st">"yellow"</span>, <span class="co">#wednesday = yellow</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Th"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="co">#thursday = green</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="co">#friday = blue</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sa"</span> <span class="ot">=</span> <span class="st">"violet"</span>, <span class="co"># saturday = purple</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Su"</span> <span class="ot">=</span> <span class="st">"hotpink"</span> <span class="co">#sunday = pink</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">drop =</span> <span class="cn">FALSE</span>)<span class="sc">+</span> <span class="co">#keep all the factors (days) in even if they have no data yet</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="co">#changin theme from the default</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co">#removing legend</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -382,22 +368,22 @@ F-statistic: 8.398 on 1 and 21 DF,  p-value: 0.008605</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> steps <span class="sc">|&gt;</span> <span class="co">#calling in data frame</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.Date</span>(date, <span class="at">format =</span> <span class="st">"%m/%d"</span>)) <span class="co">#change date to month/day format</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(steps, <span class="co">#calling in data frame</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="co">#setting x axis</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="st">`</span><span class="at">steps taken</span><span class="st">`</span>))<span class="sc">+</span> <span class="co">#setting y axis</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"lightpink"</span>, <span class="co">#point colors are light pink</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="co">#point size</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.7</span>)<span class="sc">+</span> <span class="co">#point transparency</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="co">#adding a trendline (linear)</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"hotpink"</span>, <span class="co">#hot pink line</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span>  <span class="co">#removes error lines</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily Step Count Over 1 month"</span>, <span class="co">#graph title</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Date"</span>, <span class="co">#x axis label</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Steps Taken"</span>)<span class="sc">+</span> <span class="co">#y axis label</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="co">#changing theme from the default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> steps <span class="sc">|&gt;</span> <span class="co">#calling in data frame</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.Date</span>(date, <span class="at">format =</span> <span class="st">"%m/%d"</span>)) <span class="co">#change date to month/day format</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(steps, <span class="co">#calling in data frame</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="co">#setting x axis</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="st">`</span><span class="at">steps taken</span><span class="st">`</span>))<span class="sc">+</span> <span class="co">#setting y axis</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"lightpink"</span>, <span class="co">#point colors are light pink</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="co">#point size</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.7</span>)<span class="sc">+</span> <span class="co">#point transparency</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="co">#adding a trendline (linear)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"hotpink"</span>, <span class="co">#hot pink line</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span>  <span class="co">#removes error lines</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily Step Count Over 1 month"</span>, <span class="co">#graph title</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Date"</span>, <span class="co">#x axis label</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Steps Taken"</span>)<span class="sc">+</span> <span class="co">#y axis label</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="co">#changing theme from the default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -448,6 +434,32 @@ F-statistic: 8.398 on 1 and 21 DF,  p-value: 0.008605</code></pre>
 </section>
 <section id="e.-slides-for-workshop" class="level3">
 <h3 class="anchored" data-anchor-id="e.-slides-for-workshop">e. slides for workshop</h3>
+<p><a href="https://docs.google.com/presentation/d/1RVhm2DgvGjEUGyMO99HyHclAD-wtaLrD6JKy1wb01kQ/edit?slide=id.p#slide=id.p">workshop-week 9 slides</a></p>
+</section>
+</section>
+<section id="problem-4.-statistical-critique" class="level2">
+<h2 class="anchored" data-anchor-id="problem-4.-statistical-critique">Problem 4. statistical critique</h2>
+<section id="a.-revisit-and-summarize" class="level3">
+<h3 class="anchored" data-anchor-id="a.-revisit-and-summarize">a. revisit and summarize</h3>
+<p>A two-sample t-test was used in this paper to compare the total number of recruits for each replicate of treatment versus control mesocosms of coral reefs. The response variable is the calcification rate of the reefs while the predictor variable is the amount of partial pressure of carbon dioxide present. They also used a t-test to compare the calcification rate of individual settlements of other calcifying organism populations. The response variable is still calcification rate and the predictor is still partial pressure of carbon dioxide.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../table.png" class="img-fluid figure-img"></p>
+<figcaption>t-test table</figcaption>
+</figure>
+</div>
+</section>
+<section id="b.-visual-clarity---how-clearly-does-the-table-represent-the-data-underlying-tests" class="level3">
+<h3 class="anchored" data-anchor-id="b.-visual-clarity---how-clearly-does-the-table-represent-the-data-underlying-tests">b. visual clarity - How clearly does the table represent the data underlying tests?</h3>
+<p>I think that the table accurately represents all of the data talked about in the paper, and it is fairly clear in its results. It shows the values of the control and acid treatments, and then also includes the p-values from the two-sample t-tests, which is the statistical test I chose to focus on from the paper. It does not, however, include any additional information about the test (besides the sample size in the caption), so adding other information may help us understand better if we were to just read the table and not the paper also.</p>
+</section>
+<section id="c.-aesthetic-clarity---how-well-did-the-authors-handle-visual-clutter-is-there-any-boldingitalic-text-to-draw-your-eye-to-specific-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="c.-aesthetic-clarity---how-well-did-the-authors-handle-visual-clutter-is-there-any-boldingitalic-text-to-draw-your-eye-to-specific-numbers">c.&nbsp;aesthetic clarity - How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?</h3>
+<p>I think that the table is not very visually cluttered, even though it does include a lot of information. They bolded their significant p-values in the table, so that helps us see which experiments/organisms were found to be affected by the treatment. Overall, the table is neat, organized, and easy to read.</p>
+</section>
+<section id="d.-recommendations" class="level3">
+<h3 class="anchored" data-anchor-id="d.-recommendations">d.&nbsp;recommendations</h3>
+<p>If I were to make any recommendations for this table, I would suggest adding a caption for the table to explain some of the information included. They bold “percent difference,” but don’t include a description of what it is describing (in the paper either), so I would maybe be more specific in that aspect. Besides that, they are fairly clear in all aspects of the table and also include footnotes for their superscripts, so that would be the only addition I would like to recommend.</p>
 </section>
 </section>
 </section>
