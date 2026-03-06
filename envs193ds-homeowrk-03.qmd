@@ -181,3 +181,41 @@ ggplot(steps, #calling in ggplot visualization and specifying dataset
 
 ```
 
+```{r}
+steps <- steps |> #calling in data frame
+  mutate(date = as.Date(date, format = "%m/%d")) #change date to month/day format
+
+ggplot(steps, #calling in data frame
+       aes(x = date, #setting x axis
+           y = `steps taken`))+ #setting y axis
+  geom_point(color = "lightpink", #point colors are light pink
+             size = 3, #point size
+             alpha = 0.7)+ #point transparency
+  geom_smooth(method = "lm", #adding a trendline (linear)
+              color = "hotpink", #hot pink line
+              se = FALSE)+  #removes error lines
+  labs(title = "Daily Step Count Over 1 month", #graph title
+       x = "Date", #x axis label
+       y = "Steps Taken")+ #y axis label
+  theme_light() #changing theme from the default
+
+
+
+```
+
+
+### b. captions
+
+**Figure 1. Step count varies by day of the week.** Bar graph visualization indicating step count by day of the week (Monday - red, Tuesday - orange, Wednesday - yellow, Thursday - green, Friday - blue, Saturday - purple, Sunday - pink). Shows how step count varies by weekday versus weekend. 
+
+**Figure 2. Step count has decreased over time.** Scatterplot visualization with continuous (date) predictor and response variable (steps). Points represent individual daily step counts and trendline shows average pattern over 1 month. 
+
+
+
+
+
+
+
+
+
+
