@@ -24,8 +24,8 @@ library(janitor)
 library(readxl)
 
 #reading in data here and making new object
-salinity <- read_csv("data/salinity-pickleweed.csv")
-steps <- read_csv("data/personaldata-updated.csv")
+salinity <- read_csv("../data/salinity-pickleweed.csv")
+steps <- read_csv("../data/personaldata-updated.csv")
 
 ```
 
