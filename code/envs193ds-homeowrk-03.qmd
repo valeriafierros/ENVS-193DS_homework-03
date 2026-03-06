@@ -220,11 +220,21 @@ ggplot(steps, #calling in data frame
 I think that an effective affective visualization could be a heatmap of daily step counts with 7 rows, which I could either make digitally or with yarn as a crochet scarf type of physical medium. Every day would be represented by a certain shade of a color to show the step count, and the step counts could be broken up into categories (0-500, 500-1000, etc.) This visualization would allow us to quickly see patterns in activity across time, like differences between weekdays and weekends or streaks of higher activity, while also conveying the rythym of daily movement over the time period. 
 
 ### b. sketch
-![conceptual (VERY ROUGH) sketch of relationship between steps and day](sketch.png)
+![conceptual (VERY ROUGH) sketch of relationship between steps and day](../sketch.png)
 
 ### c. draft of visualization
 
-![colored draft of visualization](draft.png)
+![colored draft of visualization](../draft.png)
 
+### d. artist statement
+- content of piece: 
+  My project is going to represent the relationship between the day of the week and the number of steps I take in a day. I'm creating a heat map using a gradient of colors that correspond to ranges of step counts (0-1000, 1000-2000, etc.), allowing for us to see any patterns in activity levels across weekdays and weekends over time. 
 
-
+- influences: 
+  I was inspired by scientific heat maps that are often used to visualize important environmental data, such as rising global temperatures or atmospheric CO₂ levels. I think that these visualizations are both visually striking and effective at communicating patterns in data, so I wanted to apply a similar concept even though my data is not as valuable. 
+  
+- form of the work: 
+  The final piece will take the form of a crocheted textile made up of a bunch of smaller squares. Each square is going to represent a day and will be colored according to its step-count category for that day. 
+  
+- process: 
+  To create this, I will individual squares corresponding to each day in my dataset using yarn colors that represent different step ranges (right now I have it as a gradient, but this may change depending yarn availability). After, I'll assemble the squares in order into a larger sheet/tapestry type-thing that visually resembles a heat map. 
