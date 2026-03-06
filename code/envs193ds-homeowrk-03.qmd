@@ -110,7 +110,7 @@ ggplot(data = salinity,
 salinity_model <- lm(pickleweed ~ salinity_mS_cm,
                      data = salinity)
 
-#plotting salinity model to check QQplot
+#plotting salinity model to check QQplot with 2 x 2 plot
 par(mfrow = c(2,2))
 plot(salinity_model)
 ```
@@ -142,7 +142,8 @@ The results of our test suggest that pickleweed biomass increases as soil salini
 
 salinity_model <- lm(pickleweed ~ salinity_mS_cm,
                      data = salinity)
-                    
+
+#showing summary of salinity model                    
 summary(salinity_model)
 
 ```
