@@ -240,3 +240,30 @@ I think that an effective affective visualization could be a heatmap of daily st
   To create this, I will individual squares corresponding to each day in my dataset using yarn colors that represent different step ranges (right now I have it as a gradient, but this may change depending yarn availability). After, I'll assemble the squares in order into a larger sheet/tapestry type-thing that visually resembles a heat map. 
 
 ### e. slides for workshop
+[workshop-week 9 slides](https://docs.google.com/presentation/d/1RVhm2DgvGjEUGyMO99HyHclAD-wtaLrD6JKy1wb01kQ/edit?slide=id.p#slide=id.p)
+
+## Problem 4. statistical critique
+
+### a. revisit and summarize
+A two-sample t-test was used in this paper to compare the total number of recruits for each replicate of treatment versus control mesocosms of coral reefs. The response variable is the calcification rate of the reefs while the predictor variable is the amount of partial pressure of carbon dioxide present. They also used a t-test to compare the calcification rate of individual settlements of other calcifying organism populations. The response variable is still calcification rate and the predictor is still partial pressure of carbon dioxide.
+
+![t-test table](../table.png)
+
+### b. visual clarity - How clearly does the table represent the data underlying tests?
+I think that the table accurately represents all of the data talked about in the paper, and it is fairly clear in its results. It shows the values of the control and acid treatments, and then also includes the p-values from the two-sample t-tests, which is the statistical test I chose to focus on from the paper. It does not, however, include any additional information about the test (besides the sample size in the caption), so adding other information may help us understand better if we were to just read the table and not the paper also.
+
+
+### c. aesthetic clarity - How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?
+
+
+### d. recommendations
+
+
+
+
+
+
+
+
+
+
