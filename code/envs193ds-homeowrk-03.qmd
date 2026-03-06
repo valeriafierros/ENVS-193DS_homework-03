@@ -255,14 +255,11 @@ I think that the table accurately represents all of the data talked about in the
 
 ### c. aesthetic clarity - How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?
 
-I think that the table is not very visually cluttered, even though it does include a lot of information. They bolded their significant p-values in the table, so that helps us see which experiments/orgainsms were found to be affected by the treatment. Overall, the table is neat, organized, and easy to read. 
+I think that the table is not very visually cluttered, even though it does include a lot of information. They bolded their significant p-values in the table, so that helps us see which experiments/organisms were found to be affected by the treatment. Overall, the table is neat, organized, and easy to read. 
 
 
 ### d. recommendations
-
-
-
-
+If I were to make any recommendations for this table, I would suggest adding a caption for the table to explain some of the information included. They bold "percent difference," but don't include a description of what it is describing (in the paper either), so I would maybe be more specific in that aspect. Besides that, they are fairly clear in all aspects of the table and also include footnotes for their superscripts, so that would be the only addition I would like to recommend. 
 
 
 
