@@ -12,6 +12,8 @@ execute:
 
 [link to homework 3 GitHub repository](https://github.com/valeriafierros/ENVS-193DS_homework-03)
 
+[deployed html link](https://valeriafierros.github.io/ENVS-193DS_homework-03/code/envs193ds-homeowrk-03.html)
+
 # 1. Set up
 
 ```{r}
@@ -27,6 +29,7 @@ library(readxl)
 salinity <- read_csv("../data/salinity-pickleweed.csv")
 steps <- read_csv("../data/personaldata-updated.csv")
 
+str(steps)
 ```
 
 
@@ -149,7 +152,7 @@ Both the Pearson's correlation and linear regression would lead to the same deci
 
 ## Problem 2. Personal data
 
-###a. updating my visualizations
+### a. updating my visualizations
 
 ```{r}
 steps <- steps |> #calling in dataframe
@@ -211,10 +214,17 @@ ggplot(steps, #calling in data frame
 **Figure 2. Step count has decreased over time.** Scatterplot visualization with continuous (date) predictor and response variable (steps). Points represent individual daily step counts and trendline shows average pattern over 1 month. 
 
 
+## Problem 3. Affective visualization
 
+### a. personal data visualization
+I think that an effective affective visualization could be a heatmap of daily step counts with 7 rows, which I could either make digitally or with yarn as a crochet scarf type of physical medium. Every day would be represented by a certain shade of a color to show the step count, and the step counts could be broken up into categories (0-500, 500-1000, etc.) This visualization would allow us to quickly see patterns in activity across time, like differences between weekdays and weekends or streaks of higher activity, while also conveying the rythym of daily movement over the time period. 
 
+### b. sketch
+![conceptual (VERY ROUGH) sketch of relationship between steps and day](sketch.png)
 
+### c. draft of visualization
 
+![colored draft of visualization](draft.png)
 
 
 
