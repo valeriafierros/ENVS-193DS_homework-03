@@ -238,3 +238,5 @@ I think that an effective affective visualization could be a heatmap of daily st
   
 - process: 
   To create this, I will individual squares corresponding to each day in my dataset using yarn colors that represent different step ranges (right now I have it as a gradient, but this may change depending yarn availability). After, I'll assemble the squares in order into a larger sheet/tapestry type-thing that visually resembles a heat map. 
+
+### e. slides for workshop
