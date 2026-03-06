@@ -255,6 +255,8 @@ I think that the table accurately represents all of the data talked about in the
 
 ### c. aesthetic clarity - How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?
 
+I think that the table is not very visually cluttered, even though it does include a lot of information. They bolded their significant p-values in the table, so that helps us see which experiments/orgainsms were found to be affected by the treatment. Overall, the table is neat, organized, and easy to read. 
+
 
 ### d. recommendations
 
