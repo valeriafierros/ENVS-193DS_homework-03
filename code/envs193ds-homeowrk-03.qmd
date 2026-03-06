@@ -218,4 +218,3 @@ ggplot(steps, #calling in data frame
 
 
 
-
