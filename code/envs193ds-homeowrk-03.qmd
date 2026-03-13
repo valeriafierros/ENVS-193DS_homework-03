@@ -42,15 +42,15 @@ steps <- read_csv("../data/personaldata-updated.csv")
 
 <!-- -->
 
-1.  simple linear regression (linear model --\> lm())
+1.  Spearman's correlation ($\rho$)
 
--   describes a linear relationship between response (California pickleweed biomass) and predictor variables (salinity).
+-   measures the strength and direction of a monotonic relationship (as one variable increases, the other consistently increases or decreases, but not necessarily linearly) between two variables
 
-2.  Pearson's correlation
+2.  Pearson's correlation (r)
 
--   measures the strength and direction of a linear association (r)
+-   measures the strength and direction of a linear relationship between two continuous variables
 
-The simple linear regression will tell us how salinity affects or predicts plant biomass, whereas the Pearson's correlation will tell us exactly *how* plant biomass and salinity are associated with one another.
+Pearson's correlation measures the strength and direction of a linear relationship between two variables using their actual numerical values. Spearman's correlation measures the strength and direction of a monotonic relationship by using the ranks of the data instead of just their numerical values. Because Spearman's uses ranks, it doesn't require normality and is less sensitive to outliers, while Pearson's assumes a linear relationship and normally distributed data.
 
 ### b. Creating a visualization
 
@@ -64,8 +64,6 @@ ggplot(data = salinity,
   #adding points and making them forest green
   geom_point(color = "forestgreen") +
   #adding a trendline
-  geom_smooth(method = "lm",
-              se = FALSE)+
   #adding labels and title
   labs(title = "As soil salinity (mS/cm) increases, California pickleweed biomass also \n increases.",
        x = "Soil Salinity (mS/cm)",
@@ -194,9 +192,6 @@ ggplot(steps, #calling in data frame
   geom_point(color = "lightpink", #point colors are light pink
              size = 3, #point size
              alpha = 0.7)+ #point transparency
-  geom_smooth(method = "lm", #adding a trendline (linear)
-              color = "hotpink", #hot pink line
-              se = FALSE)+  #removes error lines
   labs(title = "Daily Step Count Over 1 month", #graph title
        x = "Date", #x axis label
        y = "Steps Taken")+ #y axis label
