@@ -10,7 +10,7 @@ execute:
   warning: false
 ---
 
-[link to homework 3 GitHub repository](https://github.com/valeriafierros/ENVS-193DS_homework-03)
+[link to homework 03 GitHub repository](https://github.com/valeriafierros/ENVS-193DS_homework-03)
 
 [deployed html link](https://valeriafierros.github.io/ENVS-193DS_homework-03/code/envs193ds-homeowrk-03.html)
 
